@@ -222,7 +222,7 @@
           }
         }
       };
-      
+
       if(trigger > 1) {
       return true; 
       };
@@ -232,6 +232,17 @@
 
     // test if any minor diagonals on this board contain conflicts
     hasAnyMinorDiagonalConflicts: function() {
+       var board = this.rows();
+      var boardLength = board.length - 1; 
+      var index = 0;
+      
+      while(index < boardLength*2){
+        if(this.hasMinorDiagonalConflictAt(index++)){
+          return true
+        }
+      }
+
+
       return false; // fixme
     }
 
